@@ -15,3 +15,18 @@
   (->>
     (io/slurp-resource filename)
     (md/md-to-html-string)))
+
+
+(def my-machjine 
+     (vmm/instance my-server "my-vmfest-vm" 
+        {:session-type "headless"}
+        {:uuid "/Users/localredhead/VirtualBox VMs/Darchness/Darchness-disk1.vmdk"}  
+        {:memory-size 1024
+         :cpu-count 1
+         :network [{:attachment-type :host-only
+                    :host-only-interface "vboxnet0"}
+                   {:attachment-type :nat}]
+         :storage [{:name "IDE Controller"
+                    :bus :ide
+                    :devices [nil nil {:device-type :dvd} nil]}]
+         :boot-mount-point ["IDE Controller" 0]}))

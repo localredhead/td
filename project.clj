@@ -7,6 +7,7 @@
    [compojure "1.1.5"]
    [ring-server "0.2.7"]
    [http-kit "2.0.0"]
+   [vmfest "0.2.8"]
    [clabango "0.5"]
    [com.taoensso/timbre "1.5.2"]
    [com.taoensso/tower "1.4.0"]
