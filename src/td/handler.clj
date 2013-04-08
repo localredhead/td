@@ -2,7 +2,8 @@
   (:use td.routes.auth
         td.routes.home
         org.httpkit.server
-        compojure.core)
+        compojure.core
+        td.util)
   (:require [noir.util.middleware :as middleware]
             [noir.session :as session]
             [compojure.route :as route]
@@ -28,4 +29,6 @@
 (def war-handler (middleware/war-handler app))
 
 (defn -main []
+  (start-vboxweb)
+  (start-vm (my-machine (my-server)))
   (httpkit/run-server war-handler {:port 8080}))
